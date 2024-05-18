@@ -25,3 +25,24 @@ body {
     --color-4: #c9ada7;
     --color-5: #f2e9e4;
 }
+
+.--margin-inline-start-s {
+    margin-inline-start: var(--margin-s);
+}
+.--margin-inline-end-s {
+    margin-inline-end: var(--margin-s);
+}
+
+.--margin-inline-start-m {
+    margin-inline-start: var(--margin-m);
+}
+.--margin-inline-end-m {
+    margin-inline-end: var(--margin-m);
+}
+
+.--margin-inline-start-l {
+    margin-inline-start: var(--margin-l);
+}
+.--margin-inline-end-l {
+    margin-inline-end: var(--margin-l);
+}
