@@ -20,6 +20,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Lint
         run: |
+          corepack enable
           yarn install --immutable
           yarn lint
 
@@ -33,6 +34,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Prettier
         run: |
+          corepack enable
           yarn install --immutable
           yarn prettier:check
 
@@ -47,5 +49,6 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Build
         run: |
+          corepack enable
           yarn install --immutable
           yarn build
