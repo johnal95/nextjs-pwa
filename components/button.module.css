@@ -1,0 +1,4 @@
+.container {
+    background-color: var(--color-5);
+    padding: var(--padding-s) var(--padding-l);
+}
