@@ -18,11 +18,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Lint
+      - name: Install
         run: |
           corepack enable
           yarn install --immutable
-          yarn lint
+      - name: Lint
+        run: yarn lint
 
   prettier:
     runs-on: ubuntu-latest
@@ -32,11 +33,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Prettier
+      - name: Install
         run: |
           corepack enable
           yarn install --immutable
-          yarn prettier:check
+      - name: Prettier
+        run: yarn prettier:check
 
   build:
     needs: [lint, prettier]
@@ -47,8 +49,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Build
+      - name: Install
         run: |
           corepack enable
           yarn install --immutable
-          yarn build
+      - name: Build
+        run: yarn build
