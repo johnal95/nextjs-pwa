@@ -21,8 +21,8 @@ self.addEventListener("install", (event) => {
                 caches.open(PWA_CACHE).then((cache) => {
                     console.info(`[SW-${BUILD_ID}] ADDING ALL ASSETS`, assets);
                     return cache.addAll(assets);
-                })
-            )
+                }),
+            ),
     );
 });
 
@@ -54,7 +54,7 @@ self.addEventListener("fetch", (event) => {
                     .catch(console.warn);
 
                 return cachedResponse || networkResponse;
-            })
+            }),
         );
     }
 });
