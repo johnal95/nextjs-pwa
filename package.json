@@ -6,9 +6,10 @@
   "engines": {
     "node": "20.13"
   },
+  "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/generate-sw.js",
     "start": "next start",
     "lint": "next lint"
   },
