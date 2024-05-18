@@ -26,6 +26,10 @@ self.addEventListener("install", (event) => {
     );
 });
 
+self.addEventListener("activate", () => {
+    console.info(`[SW-${BUILD_ID}] ACTIVATE`);
+});
+
 self.addEventListener("fetch", (event) => {
     const url = new URL(event.request.url);
 
@@ -45,6 +49,7 @@ self.addEventListener("fetch", (event) => {
                                 return networkResponse;
                             });
                         }
+                        return networkResponse;
                     })
                     .catch(console.warn);
 
