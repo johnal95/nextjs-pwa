@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Next.js",
+  "extends": ["./base.json"],
+  "compilerOptions": {
+    /* Projects */
+    "incremental": true,
+
+    /* Language and Environment */
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
+
+    /* Modules */
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+
+    /* JavaScript Support */
+    "allowJs": true,
+
+    /* Emit */
+    "noEmit": true,
+
+    /* Interop Constraints */
+    "isolatedModules": true,
+    "esModuleInterop": true,
+
+    /* Completeness */
+    "skipLibCheck": true
+  }
+}

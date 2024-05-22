@@ -1,0 +1,35 @@
+{
+  "name": "@stack-x/ditto",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "yarn@4.2.2",
+  "engines": {
+    "node": "20.13"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/generate-sw.js",
+    "start": "next start",
+    "lint": "next lint",
+    "prettier:check": "prettier --check ."
+  },
+  "dependencies": {
+    "@stack-x/ui": "workspace:*",
+    "next": "14.2.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@stack-x/eslint-config": "*",
+    "@stack-x/tsconfig": "*",
+    "@types/node": "20.12.12",
+    "@types/react": "18.3.2",
+    "@types/react-dom": "18.3.0",
+    "@typescript-eslint/eslint-plugin": "7.9.0",
+    "@typescript-eslint/parser": "7.9.0",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.2.3",
+    "typescript": "5.4.5"
+  }
+}

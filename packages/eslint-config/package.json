@@ -1,0 +1,13 @@
+{
+  "name": "@stack-x/eslint-config",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "@types/eslint": "8.56.10",
+    "@typescript-eslint/eslint-plugin": "7.9.0",
+    "@typescript-eslint/parser": "7.9.0",
+    "eslint": "8.56.0",
+    "eslint-config-next": "14.2.3",
+    "typescript": "5.4.5"
+  }
+}

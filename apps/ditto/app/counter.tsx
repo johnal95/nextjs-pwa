@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-import Button from "@/components/button";
+import Button from "@stack-x/ui/button";
 
 import styles from "./counter.module.css";
 
