@@ -8,6 +8,7 @@ on:
 
 env:
   NODE_VERSION: 20.13
+  DO_NOT_TRACK: 1
 
 jobs:
   lint:
