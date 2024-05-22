@@ -2,10 +2,6 @@
   "name": "@stack-x/ditto",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "yarn@4.2.2",
-  "engines": {
-    "node": "20.13"
-  },
   "type": "module",
   "scripts": {
     "dev": "next dev",
