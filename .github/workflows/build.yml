@@ -15,9 +15,11 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: johnal95/nextjs-pwa/.github/workflows/base-setup.yml@master
+      - uses: ./.github/actions/base-setup
       - name: Lint
-        run: pnpm lint
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm lint
 
   prettier:
     runs-on: ubuntu-latest
