@@ -15,6 +15,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/workflows/base-setup.yml
       - name: Lint
         run: pnpm lint
