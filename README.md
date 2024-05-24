@@ -7,11 +7,11 @@ corepack enable
 ```
 
 ```sh
-yarn install
+pnpm install
 ```
 
 ## Running project
 
 ```sh
-yarn dev
+pnpm dev
 ```
