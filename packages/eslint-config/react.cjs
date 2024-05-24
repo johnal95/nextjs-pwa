@@ -6,7 +6,7 @@ const project = resolve(process.cwd(), "tsconfig.json");
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
     ...baseConfig,
-    extends: [...baseConfig.extends, "plugin:react-hooks/recommended"],
+    extends: [...baseConfig.extends, "plugin:react-hooks/recommended", "plugin:jsx-a11y/strict"],
     overrides: [
         ...baseConfig.overrides,
         {

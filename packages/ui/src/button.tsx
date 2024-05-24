@@ -9,14 +9,13 @@ interface ButtonProps extends PropsWithChildren {
     className?: string;
 }
 
-export default function Button(props: ButtonProps): React.JSX.Element {
-    const className = props.className
-        ? `${styles["container"]} ${props.className}`
-        : styles["container"];
-
+export default function Button({ children, className, onClick }: ButtonProps): React.JSX.Element {
     return (
-        <button className={className} onClick={props.onClick}>
-            {props.children}
+        <button
+            className={className ? `${styles["container"]} ${className}` : styles["container"]}
+            onClick={onClick}
+        >
+            {children}
         </button>
     );
 }
