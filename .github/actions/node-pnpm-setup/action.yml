@@ -13,3 +13,6 @@ runs:
       with:
         node-version: ${{ env.NODE_VERSION }}
         cache: "pnpm"
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
