@@ -16,28 +16,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/node-pnpm-setup
+      - uses: ./.github/actions/base-setup
       - name: Lint
-        run: |
-          pnpm lint
+        run: pnpm lint
 
   prettier:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/node-pnpm-setup
+      - uses: ./.github/actions/base-setup
       - name: Prettier
-        run: |
-          pnpm install --frozen-lockfile
-          pnpm prettier:check
+        run: pnpm prettier:check
 
   build:
     needs: [lint, prettier]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/node-pnpm-setup
+      - uses: ./.github/actions/base-setup
       - name: Build
-        run: |
-          pnpm install --frozen-lockfile
-          pnpm build
+        run: pnpm build

@@ -1,5 +1,7 @@
-name: Node pnpm Setup Action
-description: Composite action to setup Node.js and pnpm versions according to NODE_VERSION and PNPM_VERSION environment variables.
+name: Base Setup Action
+description: |
+  Composite action to setup Node.js and pnpm versions according to 'NODE_VERSION'
+  and 'PNPM_VERSION' environment variables, and installing dependencies.
 
 runs:
   using: "composite"
