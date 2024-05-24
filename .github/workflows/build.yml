@@ -15,7 +15,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: johnal95/nextjs-pwa/.github/workflows/base-setup.yml
+      - uses: johnal95/nextjs-pwa/.github/workflows/base-setup.yml@master
       - name: Lint
         run: pnpm lint
 
