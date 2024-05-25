@@ -1,0 +1,10 @@
+# Folders
+.git/
+.next/
+.turbo/
+node_modules/
+dist/
+
+# Files
+.gitignore
+*.md

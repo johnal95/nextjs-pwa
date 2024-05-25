@@ -28,11 +28,12 @@ jobs:
       - name: Prettier
         run: pnpm prettier:check
 
-  build:
+  build-ditto:
     needs: [lint, prettier]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/node-pnpm-install
-      - name: Build
-        run: pnpm build
+      - name: Build (ditto)
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        run: docker build . --target ditto --tag ditto:$IMAGE_TAG
