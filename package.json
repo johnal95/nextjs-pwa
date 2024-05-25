@@ -8,6 +8,7 @@
   },
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "dev": "turbo dev",
     "build": "turbo build",
     "start": "turbo start",
@@ -15,6 +16,8 @@
     "prettier:check": "prettier --check ."
   },
   "devDependencies": {
+    "husky": "9.0.11",
+    "lint-staged": "15.2.5",
     "prettier": "3.2.5",
     "turbo": "1.13.3"
   }
