@@ -8,7 +8,7 @@ RUN corepack enable
 FROM base AS builder
 COPY . /usr/src/app
 WORKDIR /usr/src/app
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --ignore-scripts
 RUN pnpm run build
 RUN pnpm deploy --filter=ditto --prod /prod/ditto
 
