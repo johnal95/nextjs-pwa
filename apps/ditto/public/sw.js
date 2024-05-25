@@ -1,7 +1,7 @@
 const BUILD_ID = "{{BUILD_ID}}";
 const PWA_CACHE = `PWA_CACHE_${BUILD_ID}`;
 
-const assets = ["/", "/sw-register.js"];
+const assets = ["/"];
 
 self.addEventListener("install", (event) => {
     console.info(`[SW-${BUILD_ID}] INSTALL`);
