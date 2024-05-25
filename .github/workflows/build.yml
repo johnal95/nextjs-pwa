@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/base-setup
+      - uses: ./.github/actions/node-pnpm-install
       - name: Lint
         run: pnpm lint
 
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/base-setup
+      - uses: ./.github/actions/node-pnpm-install
       - name: Prettier
         run: pnpm prettier:check
 
@@ -33,6 +33,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/base-setup
+      - uses: ./.github/actions/node-pnpm-install
       - name: Build
         run: pnpm build
