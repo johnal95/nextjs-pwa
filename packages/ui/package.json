@@ -9,7 +9,7 @@
     "lint": "eslint . --max-warnings 0"
   },
   "peerDependencies": {
-    "react": "18"
+    "react": "19.0.0-rc-f994737d14-20240522"
   },
   "devDependencies": {
     "@stack-x/eslint-config": "workspace:*",
