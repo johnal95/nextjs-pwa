@@ -16,9 +16,9 @@ RUN pnpm build
 # App image (ditto)
 FROM node:20.13-slim AS ditto
 COPY --from=ditto-builder /usr/builder/ditto/.next/standalone /prod/ditto
-## Should move to CDN
+## Should move to CDN (files served from /_next/static/*)
 COPY --from=ditto-builder /usr/builder/ditto/.next/static /prod/ditto/.next/static
-## Should move to CDN
+## Should move to CDN (files served from /public/*)
 COPY --from=ditto-builder /usr/builder/ditto/public /prod/ditto/public
 WORKDIR /prod/ditto
 ENV PORT=8080
