@@ -1,24 +1,16 @@
 {
-  "name": "@stack-x/ui",
+  "name": "@stack-x/utilities",
   "version": "0.1.0",
   "private": true,
   "exports": {
-    "./button": "./src/button.tsx"
+    "./merge-class-names": "./src/merge-class-names.ts"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0"
   },
-  "dependencies": {
-    "@stack-x/utilities": "workspace:*"
-  },
-  "peerDependencies": {
-    "react": "18"
-  },
   "devDependencies": {
     "@stack-x/eslint-config": "workspace:*",
     "@stack-x/tsconfig": "workspace:*",
-    "@types/react": "18.3.3",
-    "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "7.10.0",
     "@typescript-eslint/parser": "7.10.0",
     "eslint": "8.56.0",
