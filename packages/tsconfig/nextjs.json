@@ -7,7 +7,6 @@
     "incremental": true,
 
     /* Language and Environment */
-    "target": "ES2017",
     "jsx": "preserve",
     "lib": ["dom", "dom.iterable", "esnext"],
 

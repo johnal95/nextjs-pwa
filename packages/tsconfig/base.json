@@ -2,6 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Base",
   "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2017",
+
     /* Interop Constraints */
     "verbatimModuleSyntax": true,
     "forceConsistentCasingInFileNames": true,
