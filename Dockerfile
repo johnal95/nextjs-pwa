@@ -1,5 +1,5 @@
 # Base image
-FROM node:20.13-slim as base
+FROM node:20.14-slim as base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
@@ -14,7 +14,7 @@ WORKDIR /usr/builder/ditto
 RUN pnpm build
 
 # App image (ditto)
-FROM node:20.13-slim AS ditto
+FROM node:20.14-slim AS ditto
 COPY --from=ditto-builder /usr/builder/ditto/.next/standalone /prod/ditto
 ## Should move to CDN (files served from /_next/static/*)
 COPY --from=ditto-builder /usr/builder/ditto/.next/static /prod/ditto/.next/static
