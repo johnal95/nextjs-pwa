@@ -3,24 +3,18 @@ FROM node:20.14-slim as base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
-COPY . /usr/src/app
-WORKDIR /usr/src/app
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --ignore-scripts
 
-# App builder image (ditto)
-FROM base AS ditto-builder
-RUN pnpm deploy --filter=ditto /usr/builder/ditto
-WORKDIR /usr/builder/ditto
-RUN pnpm build
+# App builder image
+FROM base AS builder
+COPY . /usr/builder
+WORKDIR /usr/builder
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --ignore-scripts
+RUN pnpm run build
 
 # App image (ditto)
 FROM node:20.14-slim AS ditto
-COPY --from=ditto-builder /usr/builder/ditto/.next/standalone /prod/ditto
-## Should move to CDN (files served from /_next/static/*)
-COPY --from=ditto-builder /usr/builder/ditto/.next/static /prod/ditto/.next/static
-## Should move to CDN (files served from /public/*)
-COPY --from=ditto-builder /usr/builder/ditto/public /prod/ditto/public
-WORKDIR /prod/ditto
+COPY --from=builder /usr/builder/apps/ditto/.next/standalone /usr/runner
+WORKDIR /usr/runner/apps/ditto
 ENV PORT=8080
 EXPOSE 8080
 CMD [ "node", "server.js" ]

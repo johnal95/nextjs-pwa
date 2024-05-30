@@ -9,7 +9,8 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/generate-sw.js",
+    "build": "next build",
+    "postbuild": "tsx ./scripts/postbuild.ts",
     "start": "next start",
     "lint": "next lint",
     "prettier:check": "prettier --check ."
@@ -31,6 +32,7 @@
     "@typescript-eslint/parser": "7.11.0",
     "eslint": "8.56.0",
     "eslint-config-next": "14.2.3",
+    "tsx": "4.11.0",
     "typescript": "5.4.5"
   }
 }
