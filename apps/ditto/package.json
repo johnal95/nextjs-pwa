@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "tsx ./scripts/postbuild.ts",
-    "start": "next start",
+    "postbuild": "tsx scripts/postbuild.ts",
+    "start": "node .next/standalone/apps/ditto/server.js",
     "lint": "next lint",
     "prettier:check": "prettier --check ."
   },
