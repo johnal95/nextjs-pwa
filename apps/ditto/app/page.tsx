@@ -1,7 +1,8 @@
 import React from "react";
 
+import Counter from "@/components/counter";
+
 import styles from "./page.module.css";
-import Counter from "./counter";
 
 export default function Home(): React.JSX.Element {
     return (

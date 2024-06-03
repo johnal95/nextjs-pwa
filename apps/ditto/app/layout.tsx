@@ -2,7 +2,9 @@ import React from "react";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
-import RegisterServiceWorker from "./register-service-worker";
+
+import RegisterServiceWorker from "@/components/register-service-worker";
+
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
