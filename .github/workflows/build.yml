@@ -8,7 +8,7 @@ on:
 
 env:
   NODE_VERSION: 20.14
-  PNPM_VERSION: 9.1.3
+  PNPM_VERSION: 9.1.4
   DO_NOT_TRACK: 1
 
 jobs:
