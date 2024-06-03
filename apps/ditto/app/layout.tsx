@@ -21,7 +21,7 @@ export default function RootLayout({ children }: PropsWithChildren): React.JSX.E
                 <meta name="theme-color" content="#ffc252" />
                 <link rel="apple-touch-icon" href="icon-512.png" />
                 <body className={inter.className}>{children}</body>
-                <RegisterServiceWorker />
+                {process.env["NODE_ENV"] !== "development" && <RegisterServiceWorker />}
             </html>
         </StoreProvider>
     );
