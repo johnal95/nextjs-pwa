@@ -1,0 +1,9 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-s);
+}
+
+.paragraph {
+    margin-top: var(--margin-m);
+}

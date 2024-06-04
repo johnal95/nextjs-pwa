@@ -1,10 +1,27 @@
-import { NextResponse } from "next/server";
+import createIntlMiddleware from "next-intl/middleware";
 import type { NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest): Promise<NextResponse | undefined> {
-    if (request.nextUrl.pathname === "/redirect-me") {
-        const redirectUrl = new URL("/", request.url);
-        return NextResponse.redirect(redirectUrl, { status: 301 });
-    }
-    return;
+import { supportedLocales } from "./i18n/supported-locales";
+
+const intlMiddleware = createIntlMiddleware({
+    locales: supportedLocales,
+    defaultLocale: "en",
+    localeDetection: true,
+});
+
+export default async function middleware(request: NextRequest): Promise<Response | undefined> {
+    return intlMiddleware(request);
 }
+
+export const config = {
+    matcher: [
+        /*
+         * Match all request paths, except for the ones starting with:
+         * - /api (API routes)
+         * - /_next/static (static files)
+         * - /_next/image (image optimization files)
+         * - /favicon.ico (favicon file)
+         */
+        "/((?!api|_next/static|_next/image|favicon.ico).*)",
+    ],
+};

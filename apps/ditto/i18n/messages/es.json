@@ -1,0 +1,20 @@
+{
+  "Home": {
+    "title": "Home page title (ES)"
+  },
+  "Navbar": {
+    "links": {
+      "home": "Casa",
+      "about": "Sobre"
+    }
+  },
+  "Counter": {
+    "title": "Contador"
+  },
+  "About": {
+    "title": "About page title (ES)"
+  },
+  "NotFound": {
+    "title": "No he encontrado!"
+  }
+}
