@@ -1,12 +1,13 @@
 import React from "react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 import Navbar from "@/components/navbar";
 
+import CounterReference from "./counter-reference";
 import styles from "./page.module.css";
 
-export default function About(): React.JSX.Element {
-    const t = useTranslations("About");
+export default async function About(): Promise<React.JSX.Element> {
+    const t = await getTranslations("About");
 
     return (
         <main className={styles["main"]}>
@@ -14,6 +15,7 @@ export default function About(): React.JSX.Element {
             <Navbar />
             <hr />
             <p className={styles["paragraph"]}>Something here about me.</p>
+            <CounterReference />
         </main>
     );
 }

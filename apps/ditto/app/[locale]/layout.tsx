@@ -2,6 +2,7 @@ import React from "react";
 import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { Provider as JotaiProvider } from "jotai";
 import type { Metadata } from "next";
 import type { PropsWithChildren } from "react";
 
@@ -32,16 +33,18 @@ export default async function RootLayout({
 
     return (
         <StoreProvider>
-            <html lang={params.locale}>
-                <meta name="theme-color" content="#ffc252" />
-                <link rel="apple-touch-icon" href="icon-512.png" />
-                <body className={inter.className}>
-                    <NextIntlClientProvider locale={params.locale} messages={messages}>
-                        {children}
-                    </NextIntlClientProvider>
-                </body>
-                {process.env["NODE_ENV"] !== "development" && <RegisterServiceWorker />}
-            </html>
+            <JotaiProvider>
+                <html lang={params.locale}>
+                    <meta name="theme-color" content="#ffc252" />
+                    <link rel="apple-touch-icon" href="icon-512.png" />
+                    <body className={inter.className}>
+                        <NextIntlClientProvider locale={params.locale} messages={messages}>
+                            {children}
+                        </NextIntlClientProvider>
+                    </body>
+                    {process.env["NODE_ENV"] !== "development" && <RegisterServiceWorker />}
+                </html>
+            </JotaiProvider>
         </StoreProvider>
     );
 }
