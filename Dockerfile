@@ -1,11 +1,8 @@
-# Base image
-FROM node:20.14-slim as base
+# App builder image
+FROM node:20.14-slim AS builder
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
-
-# App builder image
-FROM base AS builder
 COPY . /usr/builder
 WORKDIR /usr/builder
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile --ignore-scripts
