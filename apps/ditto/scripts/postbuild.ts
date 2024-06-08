@@ -1,5 +1,6 @@
-import fs from "fs";
-import path from "path";
+import fs from "node:fs";
+import path from "node:path";
+import { generateSW } from "workbox-build";
 
 const NEXT_OUT_DIR = path.resolve(process.cwd(), ".next");
 const NEXT_STANDALONE_OUT_DIR = path.resolve(process.cwd(), ".next/standalone/apps/ditto");
@@ -22,8 +23,26 @@ fs.cpSync(staticOutput.source, staticOutput.target, { recursive: true });
 
 // COMPILE sw.js
 const SW_PATH = path.resolve(publicAssets.target, "sw.js");
-const BUILD_ID = fs.readFileSync(path.resolve(NEXT_OUT_DIR, "BUILD_ID"), "utf-8");
 
-const swFile = fs.readFileSync(SW_PATH, "utf-8");
-
-fs.writeFileSync(SW_PATH, swFile.replaceAll("{{BUILD_ID}}", BUILD_ID));
+generateSW({
+    swDest: SW_PATH,
+    globDirectory: staticOutput.target,
+    globPatterns: ["**/*.{js,css,html,woff2}"],
+    modifyURLPrefix: { "": "/_next/static/" },
+    manifestTransforms: [
+        (entries) => {
+            const transformedEntries = entries.map((entry) => ({
+                ...entry,
+                url: entry.url.replaceAll("[", "%5B").replaceAll("]", "%5D"),
+            }));
+            return { manifest: transformedEntries };
+        },
+    ],
+    additionalManifestEntries: ["/en", "/en/about", "/manifest.webmanifest"],
+    runtimeCaching: [
+        {
+            urlPattern: ({ url }) => url.pathname.startsWith("/_next/static/"),
+            handler: "StaleWhileRevalidate",
+        },
+    ],
+});
