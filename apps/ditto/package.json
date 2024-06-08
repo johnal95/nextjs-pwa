@@ -2,7 +2,7 @@
   "name": "@stack-x/ditto",
   "version": "0.1.0",
   "private": true,
-  "packageManager": "pnpm@9.1.4",
+  "packageManager": "pnpm@9.2.0",
   "engines": {
     "node": "20.14"
   },
@@ -29,14 +29,14 @@
   "devDependencies": {
     "@stack-x/eslint-config": "workspace:*",
     "@stack-x/tsconfig": "workspace:*",
-    "@types/node": "20.14.0",
+    "@types/node": "20.14.2",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@typescript-eslint/eslint-plugin": "7.12.0",
     "@typescript-eslint/parser": "7.12.0",
     "eslint": "8.56.0",
     "eslint-config-next": "14.2.3",
-    "tsx": "4.11.2",
+    "tsx": "4.14.0",
     "typescript": "5.4.5",
     "workbox-build": "7.1.1"
   }
